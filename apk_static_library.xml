@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<libraries>
+
+    <apk>
+        <sub_path>
+            <item>
+				app\libs\huawei-hiai-asr-10.0.4.310.aar
+            </item>
+            <item>
+				app\libs\huawei-hiai-pdk-10.0.4.310.aar
+            </item>
+            <item>
+				app\libs\huawei-hiai-pdk-1.0.0.aar
+            </item>
+            <item>
+				app\libs\huawei-hiai-asr-10.0.4.309.aar
+            </item>
+            <item>
+				app\libs\pdk-1.0.0.aar
+            </item>
+        </sub_path>
+    </apk>
+
+</libraries>

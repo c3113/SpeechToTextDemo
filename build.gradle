@@ -1,0 +1,40 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+//        maven { url 'https://maven.fabric.io/public' }
+        maven {url 'https://developer.huawei.com/repo/'}
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
+
+        classpath 'com.huawei.agconnect:agcp:1.7.3.300'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        mavenCentral()
+        maven {url 'https://developer.huawei.com/repo/'}
+    }
+}
+
+ext {
+    compileSdkVersion = 28
+    targetSdkVersion = 28
+    minSdkVersion = 23
+    versionMajor = 4
+    versionMinor = 0
+    versionPatch = 0
+
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

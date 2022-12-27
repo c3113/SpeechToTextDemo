@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'com.huawei.agconnect'
+
+android {
+    namespace 'com.hilary.speech'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.hilary.speech"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerVersion "1.6.10"
+        kotlinCompilerExtensionVersion "1.1.1"
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+//    repositories {
+//        flatDir {
+//            dirs 'libs'
+//        }
+//    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar","*.aar"])
+
+//    implementation(name: 'huawei_hiai', ext: 'aar')
+//    implementation(name: 'huawei-hiai-pdk-10.0.4.310', ext: 'aar')
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.activity:activity-compose:1.3.1'
+    implementation "androidx.compose.ui:ui:1.3.2"
+    implementation "androidx.compose.ui:ui-tooling-preview:1.3.2"
+    implementation 'androidx.compose.material:material:1.1.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.3.2"
+    debugImplementation "androidx.compose.ui:ui-tooling:1.3.2"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:1.3.2"
+
+    //华为ASR语音识别依赖库，版本：11.0.1.300编译最小版本为24
+//    implementation 'com.huawei.hiai.hiai-engine:huawei-hiai-pdk:11.0.1.300'
+//    implementation 'com.huawei.hiai.hiai-engine:huawei-hiai-asr:11.0.1.300'
+    implementation 'com.huawei.agconnect:agconnect-core:1.7.0.300'
+    // 引入实时语音识别服务插件
+    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:3.7.0.301'
+}
