@@ -4,3 +4,5 @@
 以后可能会收费
 华为Ai 实时语音识别SDK
 https://developer.huawei.com/consumer/cn/doc/development/hiai-Guides/ml-asr-0000001050066212
+
+该项目使用的Compose，华为鉴权使用个人的信息，自己做测试可以使用
